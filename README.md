@@ -18,4 +18,4 @@ Scheduled and managed with Airflow DAG for daily automated runs.
 
 
 Pipeline Flow Diagram
-![Reddit ETL Pipeline Flow](RedditDataEngineering.png)
+![Reddit ETL Pipeline Flow](RedditDataEngineering (2).png.png)
