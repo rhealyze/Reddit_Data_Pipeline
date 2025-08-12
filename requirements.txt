@@ -1,0 +1,24 @@
+# AWS SDK and S3 filesystem
+boto3>=1.28.0
+botocore>=1.33.0,<1.35.0
+s3fs>=2023.6.0
+
+# Reddit API
+praw>=7.8.1
+prawcore>=2.4.0
+
+# HTTP and related utilities
+requests>=2.31
+urllib3>=1.26,<2.1
+certifi
+charset-normalizer
+
+# Utilities and config
+configparser
+update-checker
+websocket-client
+six
+attrs
+propcache
+python-dateutil
+jmespath

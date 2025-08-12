@@ -1,0 +1,25 @@
+[2025-06-24T04:56:44.918+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_reddit_pipeline.reddit_extraction manual__2025-06-24T04:56:43.263290+00:00 [queued]>
+[2025-06-24T04:56:44.928+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_reddit_pipeline.reddit_extraction manual__2025-06-24T04:56:43.263290+00:00 [queued]>
+[2025-06-24T04:56:44.929+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-06-24T04:56:44.946+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): reddit_extraction> on 2025-06-24 04:56:43.263290+00:00
+[2025-06-24T04:56:44.955+0000] {standard_task_runner.py:57} INFO - Started process 59 to run task
+[2025-06-24T04:56:44.966+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'etl_reddit_pipeline', 'reddit_extraction', 'manual__2025-06-24T04:56:43.263290+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/reddit_dag.py', '--cfg-path', '/tmp/tmpf0in8h29']
+[2025-06-24T04:56:44.967+0000] {standard_task_runner.py:85} INFO - Job 2: Subtask reddit_extraction
+[2025-06-24T04:56:45.089+0000] {task_command.py:415} INFO - Running <TaskInstance: etl_reddit_pipeline.reddit_extraction manual__2025-06-24T04:56:43.263290+00:00 [running]> on host 6c7b2539f23d
+[2025-06-24T04:56:45.208+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Rhea Santhmayor' AIRFLOW_CTX_DAG_ID='etl_reddit_pipeline' AIRFLOW_CTX_TASK_ID='reddit_extraction' AIRFLOW_CTX_EXECUTION_DATE='2025-06-24T04:56:43.263290+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-06-24T04:56:43.263290+00:00'
+[2025-06-24T04:56:45.308+0000] {logging_mixin.py:151} INFO - connected to reddit
+[2025-06-24T04:56:45.308+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/pipelines/redditpipeline.py", line 10, in redditpipeline
+    posts = extract_posts(instance, subreddit, time_filter, limit)
+  File "/opt/airflow/etls/reddit_etl.py", line 16, in extract_posts
+    subreddit = reddit_instance.subredit(subreddit)
+AttributeError: 'Reddit' object has no attribute 'subredit'
+[2025-06-24T04:56:45.329+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=etl_reddit_pipeline, task_id=reddit_extraction, execution_date=20250624T045643, start_date=20250624T045644, end_date=20250624T045645
+[2025-06-24T04:56:45.347+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 2 for task reddit_extraction ('Reddit' object has no attribute 'subredit'; 59)
+[2025-06-24T04:56:45.380+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-06-24T04:56:45.394+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
