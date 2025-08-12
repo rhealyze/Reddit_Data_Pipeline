@@ -1,0 +1,4 @@
+aws/
+venv/
+awscliv2.zip
+config/config.conf
